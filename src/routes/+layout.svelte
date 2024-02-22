@@ -11,6 +11,10 @@
   <Header />
   <slot />
   <Footer />
+
+
+
+
 </div>
 
 

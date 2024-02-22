@@ -1,7 +1,7 @@
 export const mainmenu = [
   { name: "Home", link: "/" },
   { name: "About", link: "/about" },
-  { name: "Projects", link: "/projects" },
+  { name: "References", link: "/references" },
   { name: "Contact us", link: "/contact-us" },
 ];
 

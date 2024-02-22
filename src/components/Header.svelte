@@ -16,7 +16,6 @@
     {#each mainmenu as tab, index}
         <NavLi
             href={tab.link}
-            target={index === 2 ? "_blank" : ""}
         >
             {tab.name}
         </NavLi>
