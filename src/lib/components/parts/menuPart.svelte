@@ -1,12 +1,10 @@
 <script>
-  import { Navbar, NavBrand, NavLi, NavUl, NavHamburger, Button, Input } from 'flowbite-svelte';
-  import { mainmenu } from './parts/Menu';
-
-
+  import { Navbar, NavBrand, NavLi, NavUl, NavHamburger, Button } from 'flowbite-svelte';
+  import { mainmenu } from '$lib/menu';
 </script>
 <Navbar>
   <NavBrand href="/">
-    <span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Flowbite</span>
+    <span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">XO</span>
   </NavBrand>
   <div class="flex md:order-2">
     <Button size="sm">Get started</Button>

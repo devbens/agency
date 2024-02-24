@@ -10,7 +10,7 @@
 
 <div class="animetext relative">
 
-  <HeroHeader h1Class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl dark:text-white text-left" pClass="mb-8 text-lg font-normal text-white lg:text-xl sm:px-0 xl:px-48 dark:text-gray-400 text-left" >
+  <HeroHeader h1Class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl dark:text-white text-left" pClass="mb-8 text-lg font-normal text-white lg:text-xl sm:px-0 dark:text-gray-400 text-left" >
 
       <svelte:fragment slot="h1" >Who we are?<hr class="mt-5 my-5"></svelte:fragment>
 

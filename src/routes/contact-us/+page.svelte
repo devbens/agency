@@ -5,11 +5,11 @@
 </script>
 
 <svelte:head>
-  <title>About</title>
+  <title>Contact Us</title>
 </svelte:head>
 
 <Header />
 <div class="container mx-auto mt-8">
-  <h1>Welcome to the about page</h1>
+  <h1>Welcome to the contact us page</h1>
 </div>
 <Footer />

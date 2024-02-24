@@ -1,45 +1,34 @@
-# create-svelte
+## function.php
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
-
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
+This function will edit the wp-json API, and when you fetch the API, it will show only the following fields: id, title, content, excerpt, date, author, and slug.
 
 ```bash
-# create a new project in the current directory
-npm create svelte@latest
+// Modify REST API response to include only necessary post data
+function custom_modify_rest_post_data($data, $post, $request) {
+// Initialize an empty array to store modified data
+$modified_data = array();
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+// Add necessary post data to the modified array
+$modified_data['id'] = $data->data['id'];
+$modified_data['title'] = $data->data['title']['rendered'];
+$modified_data['content'] = $data->data['content']['rendered'];
+$modified_data['excerpt'] = $data->data['excerpt']['rendered'];
+$modified_data['date'] = $data->data['date'];
+$modified_data['author'] = $data->data['author'];
+$modified_data['slug'] = $data->data['slug'];
 
-## Developing
+// Add featured image URL if available
+if (isset($data->data['featured_media']) && $data->data['featured_media'] !== 0) {
+$featured_image_id = $data->data['featured_media'];
+$featured_image_url = wp_get_attachment_image_src($featured_image_id, 'full');
+if ($featured_image_url) {
+$modified_data['featured_image_url'] = $featured_image_url[0];
+}
+}
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+// Return modified data
+return $modified_data;
+}
 
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
-
-```bash
-python -m venv venv
-source venv/bin/activate
-pip install fastapi uvicorn
-python -m uvicorn main:app --reload
+add_filter('rest_prepare_post', 'custom_modify_rest_post_data', 10, 3);
 ```
